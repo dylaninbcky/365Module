@@ -1,4 +1,17 @@
 Function New365User {
+    <#
+    Gebruik het script zo: New365User -Fullname 'Dylan Gerardus Hendrik' -upn "Dylangerardus@hogevlieger.nl" -Type "Leraar"
+    
+    Je hebt keuzes uit de volgende types, en de licenties werken zo. Dat ze bij de eerste hit de licentie mappen
+    -Leraar (Eerst A1, dan E3, Dan E3 plus)
+    -Leerling (A1, E3, en dan E3 Plus)
+    -Bedrijf (Exchange Online, Pro plus, Business premium)
+    
+    Als je -Meerdereusers kiest, zul je ook een pad van een csv op moeten geven.
+    De CSV zal de volgende headers moeten bevatten: UserPrincipalname, Firstname, Lastname, Displayname, 
+    
+    #>
+    
     param (
         [parameter(Position = 0, HelpMessage = "Gebruik: -Fullname 'Dylan Berghuis'")]
         [string]$Fullname,
