@@ -20,7 +20,7 @@ Function Changelicenseoption {
             $accountsku = "$tenantname" + ':' + "$license"
             $lo = New-MsolLicenseOptions -AccountSkuId $accountsku -DisabledPlans $plan
             Set-MsolUserLicense -UserPrincipalName $M.UserPrincipalName -LicenseOptions $lo
-            Write-Host "License is aangepast voor" $m.Userprincipalname -ForegroundColor Red
+            Write-Host $license "is aangepast voor" $m.Userprincipalname -ForegroundColor Red
         }
         else {
             Write-Host "Licenties komen niet overeen met $license" -ForegroundColor Red
