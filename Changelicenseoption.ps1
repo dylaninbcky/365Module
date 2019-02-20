@@ -1,3 +1,10 @@
+<#
+Uiteraard kun je een Array maken van $plan, Bijv: "MCOSTANDARD","TEAMS1","LYNC4"
+Hij staat standaard gefilterd op Onlineklas Attribute, namelijk NL. Deze kun je ook veranderen in * voor iedereen
+Het is een wildcard comparison dus moet makkelijk werken voor vragen: Dylan@vwc.nl
+#>
+
+
 Function Changelicenseoption {
     param (
         $plan = "MCOSTANDARD",
