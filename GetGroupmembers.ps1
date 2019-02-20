@@ -1,3 +1,7 @@
+<# Function voor exporting group members naar een CSV. Deze kun je dan later weer importeren in AD met een simpel script #>
+
+
+
 Function GetGroupmembers {
     param (
         [parameter(Mandatory,HelpMessage="Voer hier je outputdirectory voor CSV file in")]
