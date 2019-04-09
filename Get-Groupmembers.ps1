@@ -11,7 +11,7 @@ Function GetGroupmembers {
     $groepscsv = @()
     
     foreach ($groep in $groepen){
-        Write-Host "Ophalen van gebruikers ff geduld" -ForegroundColor Green
+        Write-Host "Ophalen van gebruikers even geduld" -ForegroundColor Green
         $leden = Get-UnifiedGroupLinks -identity $groep.Identity -LinkType Member -ResultSize Unlimited
         $ledenmail = @()
         foreach ($lid in $leden){
