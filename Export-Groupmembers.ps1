@@ -8,7 +8,7 @@ Function ExportGroupMembers {
     $credentials = Get-Credential
     #session
     try {
-        $session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $credentials -Authentication Basic –AllowRedirection
+        $session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri "https://outlook.office365.com/powershell-liveid/" -Credential $credentials -Authentication Basic –AllowRedirection
         Import-PSSession $session
     }
     catch {
