@@ -1,5 +1,5 @@
 <#
-Uiteraard kun je een Array maken van $plan, Bijv: "MCOSTANDARD","TEAMS1","LYNC4"
+Uiteraard kun je een Array maken van $disabledplan, Bijv: "MCOSTANDARD","TEAMS1","LYNC4"
 Hij staat standaard gefilterd op Onlineklas Attribute, namelijk NL. Deze kun je ook veranderen in * voor iedereen
 Het is een wildcard comparison dus moet makkelijk werken voor vragen: Dylan@vwc.nl
 #>
@@ -7,7 +7,7 @@ Het is een wildcard comparison dus moet makkelijk werken voor vragen: Dylan@vwc.
 
 Function Changelicenseoption {
     param (
-        $plan = "MCOSTANDARD",
+        $disabledplan = "MCOSTANDARD",
         $license = "STANDARDWOFFPACK_STUDENT"
     )
     $MBX = Get-Msoluser -All | Where-Object {$_.UserPrincipalname -like "NL*"}
@@ -18,7 +18,7 @@ Function Changelicenseoption {
         $tenantname = $accountsku1[0]
         if ((Get-MsolUser -UserPrincipalName $M.UserPrincipalName).Licenses.AccountSkuID -like "*$license") {
             $accountsku = "$tenantname" + ':' + "$license"
-            $lo = New-MsolLicenseOptions -AccountSkuId $accountsku -DisabledPlans $plan
+            $lo = New-MsolLicenseOptions -AccountSkuId $accountsku -DisabledPlans $disabledplan
             Set-MsolUserLicense -UserPrincipalName $M.UserPrincipalName -LicenseOptions $lo
             Write-Host $license "is aangepast voor" $m.Userprincipalname -ForegroundColor Green
         }
