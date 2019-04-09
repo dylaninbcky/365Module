@@ -11,8 +11,6 @@ Function Get-AzureMFAStatus {
         $AllUsers = Get-MsolUser -MaxResults $MaxResults | Where-Object { $_.IsLicensed -eq $isLicensed } | Select-Object DisplayName, UserPrincipalName, `
         @{Name = 'isAdmin'; Expression = { if ($AdminUsers -match $_.UserPrincipalName) { Write-Output $true } else { Write-Output $false } } }, `
         @{Name = 'MFAEnabled'; Expression = { if ($_.StrongAuthenticationRequirements) { Write-Output $true } else { Write-Output $false } } }
-     
-     
         Write-Output $AllUsers | Sort-Object MFAEnabled, isAdmin
     }
 }
