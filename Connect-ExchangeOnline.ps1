@@ -4,6 +4,6 @@ function ExchangeLogon {
     $Pass = Get-Content $env:USERPROFILE\creds.txt | ConvertTo-SecureString
     $Cred = New-Object -TypeName System.Management.Automation.PSCredential -Argumentlist $Adminnaam, $Pass
     Connect-Msolservice -Credential $Cred
-    $Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $Cred -Authentication Basic -Allowredirection
+    $Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri "https://outlook.office365.com/powershell-liveid/" -Credential $Cred -Authentication Basic -Allowredirection
     Import-PSSession $Session
 }
